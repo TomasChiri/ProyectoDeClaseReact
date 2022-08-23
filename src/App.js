@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import './estilos.css';
+import 'core-js/actual';
 
 function App() {
+  console.log(new Set([1,2,3,4,3,2,1,1]));
+  console.log(new Set(["a", "b", "c", "a", "b"]));
+  console.log([1,2,3,4,3,2,1,1]);
+  console.log([1, [2,3], [4, [5, [6,7]]]].flat(3));
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
     </div>
   );
 }
