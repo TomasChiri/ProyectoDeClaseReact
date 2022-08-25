@@ -2,33 +2,37 @@ import './estilos.css';
 import 'core-js/actual';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Item from './components/Item';
+import Titulo from './components/Titulo';
+import Input from './components/Input';
 
 function App() {
-  // console.log(new Set([1,2,3,4,3,2,1,1]));
-  // console.log(new Set(["a", "b", "c", "a", "b"]));
-  // console.log([1,2,3,4,3,2,1,1]);
-  // console.log([1, [2,3], [4, [5, [6,7]]]].flat(3));
-
-let titulo = "Productos";
-const productos = [
-  {id:1, nombre:"Coca Cola", precio:"200"},
-  {id:2, nombre:"Pepsi", precio:"190"},
-  {id:3, nombre:"Fernet", precio:"1400"},
-  {id:4, nombre:"Rutini", precio:"2000"},
-];
-
+  const lista = ["Desarrollo Web", "Javascript", "React JS"];
+  const items = lista.map(items => (
+    <Item  valor={items}/>
+  ))
   return (
-    <div>
-      <Header />
-      <h3>{titulo}</h3>
-      <ul>
-      {
-        productos.map(item => (
-          <li key={item.id}>{item.nombre} - ${item.precio}</li>
-        ))
-      }
-      </ul>
-      <Footer />
+    <div className='container'>
+      <Header curso="Curso de " tipo="React" />
+      <main className="py-3">
+        <Titulo valor="Cursos de Coderhouse" />
+        <ul>
+          {items}
+        </ul>
+        <Titulo valor="Formulario de Contacto" />
+        <form>
+          <div className="mb-3">
+            <label className="form-label">Nombre</label>
+            <Input valor="Nombre" /> <br />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Email</label>
+            <Input valor="Email" /> <br />
+          </div>
+          <button type="button" className="btn btn-primary">Enviar</button>
+        </form>
+      </main>
+      <Footer ubicacion="Coderhouse" anio="2022" />
     </div>
   );
 }

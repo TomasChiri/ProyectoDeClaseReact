@@ -1,18 +1,14 @@
 import React from "react";
 
-const Header = () => {
-    let estilo = {
-        color: "white",
-        backgroundColor: "pink",
-        paddingTop: "20px",
-        paddingBottom:"20px"
-    };
+const Descripcion = ({tipo}) => <p>{tipo}, es un framework de JS...</p>
 
-
+const Header = (props) => {
     return(
-        <div style={estilo}>
-            <p>Encabezado!</p>
-            <hr />
+        <div className="row">
+            <div className="col-md-12 bg-light text-black p-3">
+                <h1>{props.curso} {props.tipo}</h1>
+                <Descripcion tipo={props.tipo}/>
+            </div>
         </div>
     );
 }
