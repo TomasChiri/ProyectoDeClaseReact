@@ -1,22 +1,18 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Detalle from "./components/Detalle";
+import Productos from "./components/Productos";
 
 const App = () => {
-  const productos = [
-    {id:1, nombre:"Coca Cola", precio:200},
-    {id:2, nombre:"Pepsi", precio:190},
-    {id:3, nombre:"Manaos", precio:150}
-  ];
-  //console.log(productos.map(item => item.nombre).join("-"));
-
   return (
-    <div>
-      <h1>Map</h1>
-      <ul>
-        {productos.map(item => 
-          <li id={"producto_" + item.id} key={item.id}>{item.nombre} - ${item.precio} </li>)}
-      </ul>
-    </div>
-  )
+    <BrowserRouter>
+    <Routes>
+       <Route exact path="/" element={<Productos />} />
+       <Route exact path="/categoria/:genero" element={<Productos />} />
+       <Route exact path="/productos/:id" element={<Detalle />} />
+    </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
